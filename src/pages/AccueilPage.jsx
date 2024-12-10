@@ -1,25 +1,53 @@
 import { Link } from "react-router-dom";
+import { BookOpen, ArrowRight } from "lucide-react";
 import Button from "../components/Button";
 import ImageDisplay from "../components/ImageDisplay";
 import { bookCover } from "../const/Image";
 
 const AccueilPage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-        Book Project
-      </h1>
-      <p className="text-lg text-gray-600 max-w-xl mx-auto mb-8">
-        Un projet fait par les étudiants de la MIAGE PARIS PANTHEON SORBONNE,
-        découvrez ou recherchez de nouveaux livres avec nous! 😀
-      </p>
-      <ImageDisplay images={bookCover} />
-      <Link to={`/books`}>
-        <Button
-          label="Découvrir"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0.5"
-        />
-      </Link>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 flex items-center justify-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <div className="mb-12 relative">
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-10">
+            <BookOpen className="h-32 w-32 text-blue-300" />
+          </div>
+          <BookOpen
+            className="mx-auto h-16 w-16 text-blue-600 mb-6 
+            transform hover:rotate-6 transition-transform duration-300 relative z-10"
+          />
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 
+            bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600 
+            tracking-tight"
+          >
+            Book Project
+          </h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed font-medium opacity-90">
+            Un projet collaboratif créé par les étudiants de la MIAGE PARIS
+            PANTHEON SORBONNE. Découvrez et explorez de nouveaux horizons
+            littéraires avec nous !
+          </p>
+        </div>
+
+        <div className="mb-12 shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300 ease-in-out">
+          <ImageDisplay images={bookCover} />
+        </div>
+
+        <Link to={`/books`} className="inline-block">
+          <Button
+            label="Découvrir les livres"
+            className="group transition-all duration-300 ease-in-out 
+            bg-gradient-to-r from-blue-600 to-indigo-600 
+            hover:from-blue-700 hover:to-indigo-700 
+            shadow-lg hover:shadow-xl 
+            transform hover:-translate-y-1"
+            icon={
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            }
+          />
+        </Link>
+      </div>
     </div>
   );
 };

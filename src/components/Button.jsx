@@ -1,12 +1,32 @@
+import React from "react";
 import PropTypes from "prop-types";
 
-const Button = ({ label, handleClick, className }) => {
+const Button = ({ label, handleClick, className = "", icon: Icon = null }) => {
   return (
     <button
       onClick={handleClick}
-      className={`inline-block py-3 px-6 bg-blue-500 text-white rounded-lg font-semibold uppercase tracking-wider transition-all duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 ${className}`}
+      className={`
+        inline-flex items-center justify-center
+        py-3 px-6 
+        text-white 
+        rounded-lg 
+        font-bold 
+        uppercase 
+        tracking-wider 
+        transition-all 
+        duration-300 
+        ease-in-out 
+        focus:outline-none 
+        focus:ring-2 
+        focus:ring-opacity-50
+        ${className}
+      `}
     >
       {label}
+      {Icon &&
+        React.cloneElement(Icon, {
+          className: `ml-2 transition-transform ${Icon.props.className || ""}`,
+        })}
     </button>
   );
 };
@@ -15,6 +35,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   handleClick: PropTypes.func,
   className: PropTypes.string,
+  icon: PropTypes.element,
 };
 
 export default Button;
