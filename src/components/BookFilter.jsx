@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BookFilter = ({ onSelectGenre }) => {
   const [openFilter, setOpenFilter] = useState(null);
@@ -8,7 +9,7 @@ const BookFilter = ({ onSelectGenre }) => {
     {
       title: "Genre",
       options: ["All Genres", "Fiction", "Non-Fiction", "Sci-Fi", "Fantasy"],
-      type: "genre", // Identify that this filter is for genre
+      type: "genre",
     },
     {
       title: "Language",
@@ -26,36 +27,59 @@ const BookFilter = ({ onSelectGenre }) => {
     } else {
       onSelectGenre("all");
     }
+    setOpenFilter(null);
   };
 
   return (
-    <div className="p-4 flex flex-row">
+    <div className="flex flex-wrap justify-center gap-4 px-4">
       {filters.map((filter, index) => (
-        <div key={index} className="mb-4 mx-4">
-          <div
-            className="flex justify-between items-center cursor-pointer p-2 bg-gray-200 rounded-md"
+        <div key={index} className="relative">
+          <button
             onClick={() => setOpenFilter(openFilter === index ? null : index)}
+            className={`
+              flex items-center justify-between px-4 py-2 rounded-full 
+              transition-all duration-300 
+              ${
+                openFilter === index
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }
+            `}
           >
-            <span className="font-semibold">{filter.title}</span>
+            <span className="mr-2 font-medium">{filter.title}</span>
             <ChevronDown
-              className={`transition-transform ${
-                openFilter === index ? "rotate-180" : ""
-              }`}
+              className={`
+                transform transition-transform 
+                ${openFilter === index ? "rotate-180" : ""}
+              `}
             />
-          </div>
-          {openFilter === index && (
-            <div className="mt-2 bg-gray-100 rounded-md p-2 flex flex-col">
-              {filter.options.map((option, idx) => (
-                <div
-                  key={idx}
-                  className="p-1 hover:bg-gray-200 rounded-md cursor-pointer"
-                  onClick={() => handleSelectOption(option)}
-                >
-                  {option}
+          </button>
+
+          <AnimatePresence>
+            {openFilter === index && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="absolute z-50 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200"
+              >
+                <div className="py-1">
+                  {filter.options.map((option, optionIndex) => (
+                    <button
+                      key={optionIndex}
+                      onClick={() => handleSelectOption(option)}
+                      className="w-full text-left px-4 py-2 
+                        hover:bg-blue-50 hover:text-blue-600
+                        transition-colors duration-200
+                        focus:outline-none focus:bg-blue-50"
+                    >
+                      {option}
+                    </button>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
     </div>

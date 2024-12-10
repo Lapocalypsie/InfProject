@@ -31,11 +31,17 @@ const cleanBookByISBN = (data) => {
   return {
     title: data.title,
     cover: `http://covers.openlibrary.org/b/id/${data.covers[0]}-M.jpg`,
-    authors: data.authors.map((author) => author.name), // Make sure authors are returned as an array of strings
+    authors: data.authors.map((author) => author.name),
     publishedDate: data.first_publish_date,
     description: data.description,
     subjects: data.subjects,
   };
 };
 
-export { fetchBookSubjects, fetchBookByISBN };
+const searchBooks = async (term) => {
+  const response = await fetch(`${API_URL_BOOK}/search.json?title=${term}`);
+  const data = await response.json();
+  return data;
+};
+
+export { fetchBookSubjects, fetchBookByISBN, searchBooks };
