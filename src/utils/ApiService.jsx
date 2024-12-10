@@ -27,7 +27,6 @@ const cleanBookSubjects = (data) => {
 };
 
 const cleanBookByISBN = (data) => {
-  console.log("Data fecthing ISBN", data);
   return {
     title: data.title,
     cover: `http://covers.openlibrary.org/b/id/${data.covers[0]}-M.jpg`,
