@@ -16,5 +16,14 @@ const noBookFound = () => {
     </div>
   );
 };
-export { noBookFound };
+
+const BookNotFound = (bookname) => {
+  return (
+    <div className="flex justify-center items-center h-screen text-gray-600">
+      No books found for <span className=" font-bold">{bookname}</span>. Try a
+      different search term again.  
+    </div>
+  );
+};
+export { noBookFound, BookNotFound };
 export default ErrorAlert;

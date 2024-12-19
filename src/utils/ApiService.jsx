@@ -13,6 +13,37 @@ const fetchBookByISBN = async (work) => {
   return cleanBookByISBN(data);
 };
 
+const searchBooks = async (term) => {
+  const response = await fetch(
+    `http://openlibrary.org/search.json?title=${term}`
+  );
+  const data = await response.json();
+  return cleanBookBySearch(data);
+};
+
+const cleanBookBySearch = async (data) => {
+  return data.docs.map((book) => {
+    return {
+      isbn: book.key.replace("/works/", ""),
+      title: book.title || "Unknown Title",
+      edition_count: book.edition_count || 0,
+      authors: book.author_name || ["Unknown Author"],
+      cover: book.cover_i
+        ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+        : "https://via.placeholder.com/150?text=No+Cover",
+      has_fullText: book.has_fulltext || false,
+      publish_year: book.publish_year || [],
+      publish_place: book.publish_place || [],
+      languages: book.language || [],
+      publisher: book.publisher || [],
+      ratings: {
+        average: book.ratings_average || 0,
+        count: book.ratings_count || 0,
+      },
+    };
+  });
+};
+
 const cleanBookSubjects = (data) => {
   return data.works.map((work) => {
     return {
@@ -36,12 +67,6 @@ const cleanBookByISBN = (data) => {
     description: data.description,
     subjects: data.subjects,
   };
-};
-
-const searchBooks = async (term) => {
-  const response = await fetch(`${API_URL_BOOK}/search.json?title=${term}`);
-  const data = await response.json();
-  return data;
 };
 
 export { fetchBookSubjects, fetchBookByISBN, searchBooks };

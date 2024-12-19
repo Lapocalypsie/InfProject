@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { bookgenre } from "../const/genre";
 
 const BookFilter = ({ onSelectGenre }) => {
   const [openFilter, setOpenFilter] = useState(null);
@@ -8,12 +9,12 @@ const BookFilter = ({ onSelectGenre }) => {
   const filters = [
     {
       title: "Genre",
-      options: ["All Genres", "Fiction", "Non-Fiction", "Sci-Fi", "Fantasy"],
+      options: bookgenre,
       type: "genre",
     },
     {
       title: "Language",
-      options: ["All Languages", "English", "French", "Spanish", "German"],
+      options: ["English", "French", "Spanish", "German"],
     },
     {
       title: "Publication Year",
