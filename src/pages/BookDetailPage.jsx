@@ -8,7 +8,7 @@ import {
   FileText,
 } from "lucide-react";
 import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorAlert from "../components/ErrorAlert";
+import ErrorAlert, { NoBookFound } from "../components/ErrorAlert";
 import { useQuery } from "react-query";
 
 // Cover Component
@@ -168,7 +168,7 @@ const BookDetailPage = () => {
 
   if (isLoading) return <LoadingSpinner />;
   if (error) return <ErrorAlert error={error.message || "An error occurred"} />;
-  if (!book) return <noBookFound />;
+  if (!book) return <NoBookFound />;
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12 lg:max-w-5xl">
