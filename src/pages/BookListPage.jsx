@@ -5,7 +5,10 @@ import InputSearch from "../components/InputSearch";
 import { fetchBookSubjects, searchBooks } from "../utils/ApiService";
 import LivreCard from "../components/LivreCard";
 import LoadingSpinner from "../components/LoadingSpinner";
-import ErrorAlert, { BookNotFound } from "../components/ErrorAlert";
+import ErrorAlert, {
+  BookNotFound,
+  NoBookFound,
+} from "../components/ErrorAlert";
 import { useQuery } from "react-query";
 
 const PageHeader = () => (
