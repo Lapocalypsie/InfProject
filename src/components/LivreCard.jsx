@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+LivreCard.propTypes = {
+  books: PropTypes.array.isRequired,
+};
 
 const LivreCard = ({ books }) => {
   return (

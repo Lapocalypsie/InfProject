@@ -1,5 +1,10 @@
 import { Search, X } from "lucide-react";
 import { useState } from "react";
+import PropTypes from "prop-types";
+
+InputSearch.propTypes = {
+  onSearch: PropTypes.func,
+};
 
 const InputSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");

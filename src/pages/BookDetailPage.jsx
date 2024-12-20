@@ -10,6 +10,41 @@ import {
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorAlert, { NoBookFound } from "../components/ErrorAlert";
 import { useQuery } from "react-query";
+import PropTypes from "prop-types";
+
+BookCover.propTypes = {
+  cover: PropTypes.string,
+  title: PropTypes.string.isRequired,
+};
+
+BookDetails.propTypes = {
+  book: PropTypes.object.isRequired,
+};
+
+BookAuthor.propTypes = {
+  authors: PropTypes.array,
+};
+
+PublicationDate.propTypes = {
+  firstPublishDate: PropTypes.string,
+};
+
+BookDescription.propTypes = {
+  description: PropTypes.string,
+};
+
+QuickInfo.propTypes = {
+  hasFullText: PropTypes.bool,
+  ia: PropTypes.string,
+};
+
+Subjects.propTypes = {
+  subjects: PropTypes.array,
+};
+
+ExternalLinks.propTypes = {
+  links: PropTypes.array,
+};
 
 // Cover Component
 const BookCover = ({ cover, title }) => (

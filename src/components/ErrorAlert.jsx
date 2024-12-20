@@ -1,4 +1,13 @@
 import { AlertCircle, BookX, Search } from "lucide-react";
+import PropTypes from "prop-types";
+
+BookNotFound.propTypes = {
+  bookname: PropTypes.string.isRequired,
+};
+
+ErrorAlert.propTypes = {
+  error: PropTypes.string.isRequired,
+};
 
 const ErrorAlert = ({ error }) => {
   return (

@@ -10,6 +10,18 @@ import ErrorAlert, {
   NoBookFound,
 } from "../components/ErrorAlert";
 import { useQuery } from "react-query";
+import PropTypes from "prop-types";
+
+ContentRenderer.propTypes = {
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
+  error: PropTypes.object,
+  data: PropTypes.array,
+  searchLoading: PropTypes.bool,
+  searchError: PropTypes.bool,
+  searchErrorDetails: PropTypes.object,
+  searchTerm: PropTypes.string,
+};
 
 const PageHeader = () => (
   <header className="text-center">
@@ -52,7 +64,7 @@ const ContentRenderer = ({
 
   if (data?.length > 0) return <LivreCard books={data} />;
 
-  return <noBookFound />;
+  return <NoBookFound />;
 };
 
 const BookListPage = () => {
