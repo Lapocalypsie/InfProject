@@ -1,4 +1,3 @@
-// PageHeader.jsx
 import { BookOpen } from "lucide-react";
 
 const PageHeader = () => (

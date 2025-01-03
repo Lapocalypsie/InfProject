@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AccueilPage from "./pages/AccueilPage";
 import BookListPage from "./pages/BookListPage";

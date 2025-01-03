@@ -1,4 +1,3 @@
-// BookListPage.jsx
 import { useState, useMemo } from "react";
 import { useQuery } from "react-query";
 import BookFilter from "../components/BookFilter";

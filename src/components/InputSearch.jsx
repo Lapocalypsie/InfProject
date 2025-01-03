@@ -1,4 +1,3 @@
-// InputSearch.jsx
 import { Search, X } from "lucide-react";
 import { useState } from "react";
 import { inputSearchPropTypes } from "../utils/propsType";

@@ -1,4 +1,3 @@
-// ImageDisplay.jsx
 import { imageDisplayPropTypes } from "../utils/propsType";
 
 const ImageDisplay = ({ images }) => {

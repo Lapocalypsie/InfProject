@@ -1,4 +1,3 @@
-// ErrorAlert.jsx
 import { AlertCircle, BookX, Search } from "lucide-react";
 import { errorAlertPropTypes, bookNotFoundPropTypes } from "../utils/propsType";
 

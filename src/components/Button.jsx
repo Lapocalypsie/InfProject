@@ -1,4 +1,3 @@
-// Button.jsx
 import React from "react";
 import { buttonPropTypes } from "../utils/propsType";
 

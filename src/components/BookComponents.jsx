@@ -1,4 +1,3 @@
-// BookComponents.jsx
 import {
   BookOpen,
   Calendar,

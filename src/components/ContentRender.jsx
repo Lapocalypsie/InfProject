@@ -1,4 +1,3 @@
-// ContentRender.jsx
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorAlert, { BookNotFound, NoBookFound } from "./ErrorAlert";
 import LivreCard from "./LivreCard";

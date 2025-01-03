@@ -1,4 +1,3 @@
-// FilterDropDown.jsx
 import { motion } from "framer-motion";
 import { filterDropdownPropTypes } from "../utils/propsType";
 

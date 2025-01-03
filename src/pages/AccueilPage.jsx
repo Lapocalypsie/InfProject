@@ -1,4 +1,3 @@
-// AccueilPage.jsx
 import { Link } from "react-router-dom";
 import { BookOpen, ArrowRight } from "lucide-react";
 import Button from "../components/Button";

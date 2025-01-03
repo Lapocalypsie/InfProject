@@ -1,4 +1,3 @@
-// LivreCard.jsx
 import BookCard from "./BookCard";
 import { bookPropTypes } from "../utils/propsType";
 

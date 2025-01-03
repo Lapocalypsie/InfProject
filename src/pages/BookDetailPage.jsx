@@ -1,4 +1,3 @@
-// BookDetailPage.jsx
 import { useParams } from "react-router-dom";
 import { fetchBookByISBN } from "../utils/ApiService";
 import { useQuery } from "react-query";
