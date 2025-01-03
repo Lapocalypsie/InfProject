@@ -1,4 +1,5 @@
-import PropTypes from "prop-types";
+// ImageDisplay.jsx
+import { imageDisplayPropTypes } from "../utils/propsType";
 
 const ImageDisplay = ({ images }) => {
   return (
@@ -19,13 +20,6 @@ const ImageDisplay = ({ images }) => {
   );
 };
 
-ImageDisplay.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      alt: PropTypes.string,
-    })
-  ).isRequired,
-};
+ImageDisplay.propTypes = imageDisplayPropTypes;
 
 export default ImageDisplay;

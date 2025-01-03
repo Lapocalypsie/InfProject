@@ -1,6 +1,7 @@
+// InputSearch.jsx
 import { Search, X } from "lucide-react";
 import { useState } from "react";
-import PropTypes from "prop-types";
+import { inputSearchPropTypes } from "../utils/propsType";
 
 const InputSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -31,7 +32,7 @@ const InputSearch = ({ onSearch }) => {
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search books, authors, genres..."
-          className="w-full pl-12 pr-12 py-3 rounded-full border border-gray-200 bg-white 
+          className="w-full pl-12 pr-12 py-3 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 
           focus:ring-2 focus:ring-blue-500 focus:border-transparent 
           transition-all duration-300 shadow-md 
           group-focus-within:shadow-lg group-focus-within:border-blue-300"
@@ -48,5 +49,7 @@ const InputSearch = ({ onSearch }) => {
     </div>
   );
 };
+
+InputSearch.propTypes = inputSearchPropTypes;
 
 export default InputSearch;

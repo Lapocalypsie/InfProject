@@ -1,26 +1,12 @@
+// Button.jsx
 import React from "react";
-import PropTypes from "prop-types";
+import { buttonPropTypes } from "../utils/propsType";
 
 const Button = ({ label, handleClick, className = "", icon: Icon = null }) => {
   return (
     <button
       onClick={handleClick}
-      className={`
-        inline-flex items-center justify-center
-        py-3 px-6 
-        text-white 
-        rounded-lg 
-        font-bold 
-        uppercase 
-        tracking-wider 
-        transition-all 
-        duration-300 
-        ease-in-out 
-        focus:outline-none 
-        focus:ring-2 
-        focus:ring-opacity-50
-        ${className}
-      `}
+      className={`inline-flex items-center justify-center py-3 px-6 text-white rounded-lg font-bold uppercase tracking-wider transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-50 ${className}`}
     >
       {label}
       {Icon &&
@@ -31,11 +17,6 @@ const Button = ({ label, handleClick, className = "", icon: Icon = null }) => {
   );
 };
 
-Button.propTypes = {
-  label: PropTypes.string.isRequired,
-  handleClick: PropTypes.func,
-  className: PropTypes.string,
-  icon: PropTypes.element,
-};
+Button.propTypes = buttonPropTypes;
 
 export default Button;
