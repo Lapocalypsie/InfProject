@@ -1,6 +1,7 @@
 import { Search, X } from "lucide-react";
 import { useState } from "react";
 import { inputSearchPropTypes } from "../utils/propsType";
+import Button from "./Button";
 
 const InputSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,12 +38,13 @@ const InputSearch = ({ onSearch }) => {
           group-focus-within:shadow-lg group-focus-within:border-blue-300"
         />
         {searchTerm && (
-          <button
-            onClick={clearSearch}
-            className="absolute inset-y-0 right-0 pr-4 flex items-center group"
-          >
-            <X className="h-5 w-5 text-gray-400 hover:text-gray-600 group-focus-within:text-blue-500 transition-colors" />
-          </button>
+          <Button
+            handleClick={clearSearch}
+            icon={
+              <X className="h-5 w-5 text-gray-400 hover:text-gray-600 group-focus-within:text-blue-500 transition-colors" />
+            }
+            className="absolute inset-y-0 right-0 pr-4"
+          />
         )}
       </div>
     </div>

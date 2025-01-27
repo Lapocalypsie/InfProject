@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { bookPropTypes } from "../utils/propsType";
 
 const BookCard = ({ book }) => {
+
+  
   return (
     <Link
       to={`/book/${book.isbn}`}
@@ -23,6 +25,7 @@ const BookCard = ({ book }) => {
           <p className="book-author text-sm font-medium text-gray-500 dark:text-gray-400">
             {book.author}
           </p>
+          
         </div>
       </div>
     </Link>

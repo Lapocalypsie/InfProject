@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { filterDropdownPropTypes } from "../utils/propsType";
+import Button from "./Button";
 
 const FilterDropdown = ({ options, onSelectOption }) => {
   return (
@@ -11,16 +12,14 @@ const FilterDropdown = ({ options, onSelectOption }) => {
     >
       <div className="py-1">
         {options.map((option, optionIndex) => (
-          <button
+          <Button
             key={optionIndex}
-            onClick={() => onSelectOption(option)}
-            className="w-full text-left px-4 py-2 
-              hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400
-              transition-colors duration-200
-              focus:outline-none focus:bg-blue-50 dark:focus:bg-gray-700"
-          >
-            {option}
-          </button>
+            handleClick={() => onSelectOption(option)}
+            label={option}
+            className="w-full text-left px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 
+               hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200
+               focus:outline-none focus:bg-blue-50 dark:focus:bg-gray-700"
+          />
         ))}
       </div>
     </motion.div>

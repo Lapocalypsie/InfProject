@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import { useDarkMode } from "../contexts/DarkModeContext";
+import Button from "./Button";
 
 const Navbar = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
@@ -12,15 +13,11 @@ const Navbar = () => {
           Book Project
         </Link>
         <div className="flex items-center space-x-4">
-          <Link to="/books" className="hover:text-blue-500 transition-colors">
-            Books
-          </Link>
-          <button
-            onClick={toggleDarkMode}
+          <Button
+            handleClick={toggleDarkMode}
+            icon={isDark ? <Sun size={24} /> : <Moon size={24} />}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-          >
-            {isDark ? <Sun size={24} /> : <Moon size={24} />}
-          </button>
+          />
         </div>
       </div>
     </nav>

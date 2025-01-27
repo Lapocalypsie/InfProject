@@ -2,18 +2,29 @@ import { useParams } from "react-router-dom";
 import { fetchBookByISBN } from "../utils/ApiService";
 import { useQuery } from "react-query";
 import { useMemo } from "react";
-import { BookAuthor, BookCover, BookDescription, ExternalLinks, PublicationDate, QuickInfo, Subjects } from "../components/BookComponents";
+import {
+  BookAuthor,
+  BookCover,
+  BookDescription,
+  ExternalLinks,
+  PublicationDate,
+  QuickInfo,
+  Subjects,
+} from "../components/BookComponents";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorAlert, { NoBookFound } from "../components/ErrorAlert";
 
 const BookDetailPage = () => {
   const { id } = useParams();
 
-  const { data: book, isLoading, error } = useQuery(
-    ["book", id],
-    () => fetchBookByISBN(id),
-    { enabled: !!id, retry: 1 }
-  );
+  const {
+    data: book,
+    isLoading,
+    error,
+  } = useQuery(["book", id], () => fetchBookByISBN(id), {
+    enabled: !!id,
+    retry: 1,
+  });
 
   const bookDetails = useMemo(() => {
     if (!book) return null;
