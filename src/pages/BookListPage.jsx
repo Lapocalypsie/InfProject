@@ -4,7 +4,9 @@ import BookFilter from "../components/BookFilter";
 import InputSearch from "../components/InputSearch";
 import { fetchBookSubjects, searchBooks } from "../utils/ApiService";
 import PageHeader from "../components/PageHeader";
-import ContentRenderer from "../components/ContentRender";
+import BookCard from "../components/BookCard";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorAlert from "../components/ErrorAlert";
 
 const BookListPage = () => {
   const [genre, setGenre] = useState("fantasy");
@@ -52,16 +54,23 @@ const BookListPage = () => {
           <InputSearch onSearch={handleSearch} />
           <BookFilter onSelectGenre={handleGenreChange} />
 
-          <ContentRenderer
-            isLoading={isLoading}
-            isError={isError}
-            error={error}
-            data={displayedBooks}
-            searchLoading={searchLoading}
-            searchError={searchError}
-            searchErrorDetails={searchErrorDetails}
-            searchTerm={searchTerm}
-          />
+          {isLoading || searchLoading ? (
+            <div className="text-center text-gray-500">
+              <LoadingSpinner />
+            </div>
+          ) : isError || searchError ? (
+            <div className="text-center text-red-500">
+              <ErrorAlert
+                error={error?.message || searchErrorDetails?.message}
+              />
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {displayedBooks?.map((book, index) => (
+                <BookCard key={index} book={book} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
