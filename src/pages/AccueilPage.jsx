@@ -5,7 +5,6 @@ import Button from "../components/Common/Button";
 import ImageDisplay from "../components/Display/ImageDisplay";
 
 const AccueilPage = () => {
-  
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
@@ -20,11 +19,11 @@ const AccueilPage = () => {
           <h1
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 
             bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-600 
-            tracking-tight"
+            tracking-tight font-serif"
           >
             Book Project
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-medium opacity-90">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-medium opacity-90 font-thin">
             Un projet collaboratif créé par les étudiants de la MIAGE PARIS
             PANTHEON SORBONNE. Découvrez et explorez de nouveaux horizons
             littéraires avec nous !
@@ -42,7 +41,7 @@ const AccueilPage = () => {
             bg-gradient-to-r from-blue-600 to-indigo-600 
             hover:from-blue-700 hover:to-indigo-700 
             shadow-lg hover:shadow-xl 
-            transform hover:-translate-y-1"
+            transform hover:-translate-y-1 font-bold"
             icon={
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             }

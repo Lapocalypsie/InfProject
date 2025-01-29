@@ -8,9 +8,9 @@ const PageHeader = () => (
     />
     <h1
       className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-200 mb-3 
-      bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600"
+      bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 font-serif"
     >
-      Project Book
+      Book Project
     </h1>
     <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-lg">
       Cherchez et venez découvrir de nouveaux livres !

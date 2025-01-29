@@ -41,12 +41,17 @@ const BookListPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto space-y-8">
         <PageHeader />
         <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-          <InputSearch onSearch={handleSearch} />
-          <BookFilter onSelectGenre={handleGenreChange} />
+          <div className="w-full sm:flex-1">
+            <InputSearch onSearch={handleSearch} />
+          </div>
+
+          <div className="w-full sm:w-auto">
+            <BookFilter onSelectGenre={handleGenreChange} />
+          </div>
         </div>
 
         {(() => {

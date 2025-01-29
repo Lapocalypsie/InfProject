@@ -10,12 +10,20 @@ const Pagination = ({ currentPage, totalPages, setPage }) => {
   };
 
   return (
-    <div className="flex justify-center mt-8">
-      <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+    <div className="flex justify-center mt-8 dark:text-gray-200">
+      <button
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
         <ChevronLeft />
       </button>
-      <span className="px-4">Page {currentPage} of {totalPages}</span>
-      <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage >= totalPages}>
+      <span className="px-4">
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentPage >= totalPages}
+      >
         <ChevronRight />
       </button>
     </div>

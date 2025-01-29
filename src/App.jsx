@@ -13,14 +13,16 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <DarkModeProvider>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path={path.accueil} element={<AccueilPage />} />
-            <Route path={path.books} element={<BookListPage />} />
-            <Route path={path.bookDetail} element={<BookDetailPage />} />
-          </Routes>
-        </Router>
+        <div className="dark:bg-gray-900 min-h-screen">
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path={path.accueil} element={<AccueilPage />} />
+              <Route path={path.books} element={<BookListPage />} />
+              <Route path={path.bookDetail} element={<BookDetailPage />} />
+            </Routes>
+          </Router>
+        </div>
       </DarkModeProvider>
     </QueryClientProvider>
   );
