@@ -39,7 +39,7 @@ const cleanBookBySearch = (data, itemsPerPage) => {
       authors: book.author_name || ["Unknown Author"],
       cover: book.cover_i
         ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-        : "https://via.placeholder.com/150?text=No+Cover",
+        : "https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg",
       has_fullText: book.has_fulltext || false,
       publish_year: book.publish_year || [],
       publisher: book.publisher || [],
@@ -57,7 +57,7 @@ const cleanBookSubjects = (data) => {
     author: work.authors.map((author) => author.name),
     cover: work.cover_id
       ? `http://covers.openlibrary.org/b/id/${work.cover_id}-M.jpg`
-      : "https://via.placeholder.com/150?text=No+Cover",
+      : "https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg",
     has_fullText: work.has_fulltext,
   }));
 };
@@ -66,7 +66,7 @@ const cleanBookByISBN = (data) => ({
   title: data.title,
   cover: data.covers?.[0]
     ? `http://covers.openlibrary.org/b/id/${data.covers[0]}-M.jpg`
-    : "https://via.placeholder.com/150?text=No+Cover",
+    : "https://authors.bookfunnel.com/wp-content/uploads/2017/02/Soothing_Clouds.jpg",
   authors: data.authors.map((author) => author.name),
   first_publish_date: data.first_publish_date,
   description: data.description,

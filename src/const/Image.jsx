@@ -5,7 +5,6 @@ import cover4 from "../assets/bookCover/narnia.jpg";
 import cover5 from "../assets/bookCover/prideprejudice.jpg";
 import cover6 from "../assets/bookCover/twilight.jpg";
 
-// Export all book covers with alt text
 export const bookCover = [
   { src: cover1, alt: "Alchimiste" },
   { src: cover2, alt: "Eragon" },
