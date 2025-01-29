@@ -6,6 +6,7 @@ import { path } from "./const/route";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
 import Navbar from "./components/NavBar";
+import FavoritePage from "./pages/FavoritePage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function App() {
               <Route path={path.accueil} element={<AccueilPage />} />
               <Route path={path.books} element={<BookListPage />} />
               <Route path={path.bookDetail} element={<BookDetailPage />} />
+              <Route path={path.favoris} element={<FavoritePage />} />
             </Routes>
           </Router>
         </div>

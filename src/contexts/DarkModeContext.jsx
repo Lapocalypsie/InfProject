@@ -10,7 +10,7 @@ export function DarkModeProvider({ children }) {
       return savedMode ? JSON.parse(savedMode) : false;
     } catch (error) {
       console.error("Error accessing localStorage:", error);
-      return false; // Fallback to false if localStorage is inaccessible
+      return false;
     }
   });
 
@@ -37,7 +37,6 @@ export function DarkModeProvider({ children }) {
     </DarkModeContext.Provider>
   );
 }
-
 
 export function useDarkMode() {
   const context = useContext(DarkModeContext);
