@@ -13,7 +13,7 @@ import {
   quickInfoPropTypes,
   subjectsPropTypes,
   externalLinksPropTypes,
-} from "../utils/propsType";
+} from "../../utils/propsType";
 
 export const BookCover = ({ cover, title }) => (
   <div className="md:col-span-1 p-6 bg-gray-50 dark:bg-gray-700 flex items-center justify-center">
@@ -105,9 +105,9 @@ export const Subjects = ({ subjects }) => (
     </div>
     {subjects && subjects.length > 0 ? (
       <div className="flex flex-wrap gap-2">
-        {subjects.slice(0, 6).map((subject, index) => (
+        {subjects.slice(0, 6).map((subject, link) => (
           <span
-            key={index}
+            key={link.url}
             className="bg-blue-100 dark:bg-gray-600 text-blue-800 dark:text-blue-300 text-xs px-3 py-1 rounded-full"
           >
             {subject}

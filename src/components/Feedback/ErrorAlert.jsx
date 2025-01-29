@@ -1,5 +1,5 @@
 import { AlertCircle, BookX, Search } from "lucide-react";
-import { errorAlertPropTypes, bookNotFoundPropTypes } from "../utils/propsType";
+import { errorAlertPropTypes, bookNotFoundPropTypes } from "../../utils/propsType";
 
 const ErrorAlert = ({ error }) => {
   return (

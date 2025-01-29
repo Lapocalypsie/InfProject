@@ -1,5 +1,5 @@
 import React from "react";
-import { buttonPropTypes } from "../utils/propsType";
+import { buttonPropTypes } from "../../utils/propsType";
 
 const Button = ({ label, handleClick, className = "", icon: Icon = null }) => {
   return (

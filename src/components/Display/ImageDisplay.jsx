@@ -1,4 +1,4 @@
-import { imageDisplayPropTypes } from "../utils/propsType";
+import { imageDisplayPropTypes } from "../../utils/propsType";
 
 const ImageDisplay = ({ images }) => {
   return (

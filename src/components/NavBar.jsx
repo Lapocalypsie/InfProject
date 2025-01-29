@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Moon, Sun, BookOpen, Menu } from "lucide-react";
+import { Moon, Sun, BookOpen } from "lucide-react";
 import { useDarkMode } from "../contexts/DarkModeContext";
-import Button from "./Button";
+import Button from "./Common/Button";
 
 const Navbar = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
@@ -45,16 +45,6 @@ const Navbar = () => {
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 
                 hover:bg-gray-200 dark:hover:bg-gray-700 
                 shadow-sm hover:shadow-md transition-all duration-300"
-            />
-
-            {/* Mobile menu button - you can expand this later */}
-            <Button
-              handleClick={() => {}}
-              icon={<Menu size={20} />}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 
-                hover:bg-gray-200 dark:hover:bg-gray-700 
-                shadow-sm hover:shadow-md transition-all duration-300 
-                sm:hidden"
             />
           </div>
         </div>

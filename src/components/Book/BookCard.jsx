@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { bookPropTypes } from "../utils/propsType";
+import { bookPropTypes } from "../../utils/propsType";
 
 const BookCard = ({ book }) => {
-
   
   return (
     <Link

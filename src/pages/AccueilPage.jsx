@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { BookOpen, ArrowRight } from "lucide-react";
-import Button from "../components/Button";
-import ImageDisplay from "../components/ImageDisplay";
 import { bookCover } from "../const/Image";
+import Button from "../components/Common/Button";
+import ImageDisplay from "../components/Display/ImageDisplay";
 
 const AccueilPage = () => {
   

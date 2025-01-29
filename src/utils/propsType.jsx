@@ -107,3 +107,9 @@ export const themeProviderPropTypes = {
 export const darkModeProviderPropTypes = {
   children: PropTypes.node.isRequired,
 };
+
+export const paginationPropTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+};

@@ -1,6 +1,5 @@
 const bookgenre = [
   "Fantastique",
-  "Épouvante",
   "Humour",
   "Littérature",
   "Magie",
