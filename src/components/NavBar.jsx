@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Moon, Sun, BookOpen } from "lucide-react";
+import { Moon, Sun, BookOpen, Heart } from "lucide-react";
 import { useDarkMode } from "../contexts/DarkModeContext";
 import Button from "./Common/Button";
 
@@ -25,6 +25,23 @@ const Navbar = () => {
           </Link>
 
           <div className="flex items-center space-x-4">
+            <div>
+              <Link to="/favoris" className="inline-block">
+                <Button
+                  handleClick={() => console.log("Bouton cliqué")}
+                  icon={
+                    <Heart
+                      size={20}
+                      className="text-red-600 hover:text-red-500
+                    transition-colors duration-300"
+                    />
+                  }
+                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800
+                hover:bg-gray-200 dark:hover:bg-gray-700
+                shadow-sm hover:shadow-md transition-all duration-300"
+                />
+              </Link>
+            </div>
             <Button
               handleClick={toggleDarkMode}
               icon={
