@@ -1,15 +1,23 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { bookPropTypes } from "../../utils/propsType";
 import { Heart } from "lucide-react";
 import Button from "../Common/Button";
+import { useFavorites } from "../../contexts/FavoriteContext";
 
 const BookCard = ({ book }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { addFavorite, removeFavorite, favorites } = useFavorites();
+
+  // creation d'une constante isFavori
+  const isFavorite = favorites.some((fav) => fav.isbn === book.isbn);
 
   const handleFavoriteClick = (e) => {
     e.preventDefault();
-    setIsFavorite(!isFavorite);
+
+    if (isFavorite) {
+      removeFavorite(book.isbn); 
+    } else {
+      addFavorite(book); 
+    }
   };
 
   return (
@@ -64,3 +72,5 @@ const BookCard = ({ book }) => {
 BookCard.propTypes = bookPropTypes;
 
 export default BookCard;
+
+

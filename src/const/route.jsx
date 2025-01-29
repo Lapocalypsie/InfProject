@@ -2,7 +2,7 @@ const path = {
   accueil: "/",
   books: "/books",
   bookDetail: "/book/:id",
-  favoris: "/favorites",
+  favoris: "/favoris",
 };
 
 export { path };
