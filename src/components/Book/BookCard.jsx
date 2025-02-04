@@ -14,9 +14,9 @@ const BookCard = ({ book }) => {
     e.preventDefault();
 
     if (isFavorite) {
-      removeFavorite(book.isbn); 
+      removeFavorite(book.isbn);
     } else {
-      addFavorite(book); 
+      addFavorite(book);
     }
   };
 
@@ -72,5 +72,3 @@ const BookCard = ({ book }) => {
 BookCard.propTypes = bookPropTypes;
 
 export default BookCard;
-
-
