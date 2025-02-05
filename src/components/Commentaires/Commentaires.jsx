@@ -49,7 +49,7 @@ const CommentaryBox = ({ id }) => {
     try {
       new URL(urlString);
       return true;
-    } catch (_) {
+    } catch (e) {
       return false;
     }
   };

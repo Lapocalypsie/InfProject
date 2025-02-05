@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import {
   fetchBookByISBN,
   fetchBookSubjects,
@@ -8,65 +8,48 @@ import {
 const ITEMS_PER_PAGE = 12;
 
 const useBooks = (genre, searchTerm, page) => {
-  const {
-    data: booksData,
-    isLoading,
-    isError,
-    error,
-  } = useQuery(
-    ["books", genre, page],
-    () => fetchBookSubjects(genre, page, ITEMS_PER_PAGE),
-    {
-      enabled: !!genre && !searchTerm,
-      retry: 1,
-    }
-  );
+  const booksQuery = useQuery({
+    queryKey: ["books", genre, page],
+    queryFn: () => fetchBookSubjects(genre, page, ITEMS_PER_PAGE),
+    enabled: Boolean(genre) && !searchTerm,
+    retry: 1,
+    keepPreviousData: true,
+  });
 
-  const {
-    data: searchResultsData,
-    isLoading: searchLoading,
-    isError: searchError,
-    error: searchErrorDetails,
-  } = useQuery(
-    ["searchBooks", searchTerm, page],
-    () => searchBooks(searchTerm, page, ITEMS_PER_PAGE),
-    {
-      enabled: !!searchTerm,
-      retry: 1,
-    }
-  );
+  const searchQuery = useQuery({
+    queryKey: ["searchBooks", searchTerm, page],
+    queryFn: () => searchBooks(searchTerm, page, ITEMS_PER_PAGE),
+    enabled: Boolean(searchTerm),
+    retry: 1,
+    keepPreviousData: true,
+  });
 
   return {
-    books: booksData?.books || [],
-    searchResults: searchResultsData?.docs || [],
+    books: booksQuery.data?.books || [],
+    searchResults: searchQuery.data?.docs || [],
     displayedBooks: searchTerm
-      ? searchResultsData?.docs || []
-      : booksData?.books || [],
-    isLoading,
-    isError,
-    error,
-    searchLoading,
-    searchError,
-    searchErrorDetails,
-    totalBooks: booksData?.totalBooks || 0,
-    totalPages: booksData?.totalPages || 1,
+      ? searchQuery.data?.docs || []
+      : booksQuery.data?.books || [],
+    isLoading: booksQuery.isLoading || searchQuery.isLoading,
+    isError: booksQuery.isError || searchQuery.isError,
+    error: booksQuery.error || searchQuery.error,
+    totalBooks: booksQuery.data?.totalBooks || 0,
+    totalPages: booksQuery.data?.totalPages || 1,
   };
 };
 
 const useBookDetail = (id) => {
-  const { data, isLoading, error } = useQuery(
-    ["book", id],
-    () => fetchBookByISBN(id),
-    {
-      enabled: !!id,
-      retry: 1,
-    }
-  );
+  const bookQuery = useQuery({
+    queryKey: ["book", id],
+    queryFn: () => fetchBookByISBN(id),
+    enabled: Boolean(id),
+    retry: 1,
+  });
 
   return {
-    book: data || {},
-    isLoading,
-    error,
+    book: bookQuery.data || {},
+    isLoading: bookQuery.isLoading,
+    error: bookQuery.error,
   };
 };
 
